@@ -9,6 +9,8 @@ let lastTime;
 const update = (time)=>{
     if(lastTime != null){
         const delta = time-lastTime;
+
+        computerPaddle.update(delta, ball.y);
         
         // ball.update(delta);
     }
