@@ -36,7 +36,7 @@ export default class Ball{
 
     }
 
-    update(delta){
+    update(delta, paddleRect){
         this.x +=this.direction.x * this.velocity * delta;//if the time between frame is high then delta will be big and the postion of ball will change accordinly
         this.y +=this.direction.y * this.velocity * delta;
         const rect = this.rect();
@@ -45,7 +45,7 @@ export default class Ball{
         if(rect.bottom >= window.innerHeight || rect.top <= 0){
           this.direction.y *= -1;  
         }
-        if(rect.right >= innerWidth || rect.left <= 0){
+        if(paddleRect.some(r=> isCollision(r, rect))){
             this.direction.x *= -1;
         }
     }
@@ -54,4 +54,10 @@ export default class Ball{
 
 function randomNumberBetween(min, max){
     return Math.random()*(max-min)+min;
+}
+function isCollision(rect1, rect2){
+        return (  rect1.left <= rect2.right &&
+            rect1.right >= rect2.left &&
+            rect1.top <= rect2.bottom &&
+            rect1.bottom >= rect2.top);
 }
