@@ -15,10 +15,10 @@ body{
 
 /*making paddle*/
 .paddle{
-    --postion:50;
+    --position:50;
     position: absolute;
     background-color: var(--foreground-color);
-    top:calc(var(--postion)*1vh);
+    top:calc(var(--position)*1vh);
     transform:translateY(-50%);
     width:1vh;
     height: 10vh;
@@ -39,7 +39,7 @@ body{
     width: 2.5vh;
     height: 2.5vh;
     top:calc(var(--y)*1vh);
-    left:calc(var(--x)*1vh);
+    left:calc(var(--x)*1vw);
     border-radius:50%;
     transform: translate(-50%,-50%);
 }
